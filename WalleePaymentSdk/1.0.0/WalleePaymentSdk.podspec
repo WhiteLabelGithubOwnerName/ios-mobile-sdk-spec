@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.author       = "WalleeXXXX"
-  s.homepage     = "https://github.com/danielaotelea/SDK"
+  s.homepage     = "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk"
 
   s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "1.0.0" }
   s.vendored_frameworks = "WalleePaymentSdk.xcframework"
@@ -20,6 +20,3 @@ Pod::Spec.new do |s|
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
 end
-
-
-
