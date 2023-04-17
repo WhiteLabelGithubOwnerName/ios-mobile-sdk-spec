@@ -1,21 +1,21 @@
 # Table of contents
 
-- [iOS WalleePaymentSdk](#wallee-ios-payment-sdk)
-    - [API reference](#api-reference)
-    - [Installation](#installation)
-        - [Requirements](#requirements)
-        - [Configuration](#configuration)
-    - [Integration](#integration)
-        - [Set up wallee](#set-up-wallee)
-        - [Create transaction](#create-transaction)
-        - [Collect payment details](#collect-payment-details)
-        - [Handle result](#handle-result)
-        - [Verify payment](#verify-payment)
-    - [Theming](#theming)
-        - [Colors](#colors)
-        - [Default themes](#default-themes)
-            - [Light theme](#light-theme)
-            - [Dark theme](#dark-theme)
+- [iOS WalleePaymentSdk](#ios-walleepaymentsdk)
+- [API reference](#api-reference)
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Configuration](#configuration)
+- [Integration](#integration)
+- [Set up wallee](#set-up-wallee)
+- [Create transaction](#create-transaction)
+- [Collect payment details](#collect-payment-details)
+- [Handle result](#handle-result)
+- [Verify payment](#verify-payment)
+- [Theming](#theming)
+- [Colors](#colors)
+- [Default themes](#default-themes)
+- [Light theme](#light-theme)
+- [Dark theme](#dark-theme)
 
 # [ios] WalleePaymentSdk
 
@@ -210,8 +210,7 @@ the theme or only change certain colors.
 - `walleePaymentSdk.setLightTheme(NSMutableDictionary)` allows to modify the payment dialog's light theme.
 - `walleePaymentSdk.setDarkTheme(NSMutableDictionary)` allows to modify the payment dialog's dark theme.
 - `walleePaymentSdk.setCustomTheme(NSMutableDictionary|| nil, ThemeEnum)` allows to enforce a specific theme (dark,
-  light
-  or your own).
+  light or your own).
 
 ```swift
 // ...
@@ -225,15 +224,13 @@ class ViewController : UIViewController, WalleePaymentResultObserver {
     
     @IBAction func openSdkClick()
     {
-        ....   
+        ....
         changeColorSchema(wallee: wallee)
         ...
     }
 
-
     private func changeColorSchema(wallee: WalleePaymentSdk)
     {
-
         walleePaymentSdk.setLightTheme(light: getLightTheme())
     }
 
