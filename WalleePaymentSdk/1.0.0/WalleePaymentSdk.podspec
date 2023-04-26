@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
     ],
     "DoubleConversion": [
       "~> 1.1.5"
+    ],
+    "glog": [
+      "~> 0.3.4"
     ]
   }
 end
