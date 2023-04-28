@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
+  s.dependency 'OpenSSL-Universal', '1.1.1100'
   s.frameworks = [
     "double-conversion.framework",
-    "glog.framework",
-    "OpenSSL.framework"
+    "glog.framework"
   ]
 end
