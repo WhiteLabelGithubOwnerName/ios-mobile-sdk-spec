@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
     "DoubleConversion": [
       "~> 1.1.6"
     ]
+  }
 end
