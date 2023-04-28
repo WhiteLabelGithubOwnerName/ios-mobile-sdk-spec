@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '12.4'
   s.frameworks = [
     "double-conversion.framework",
-    "glog.framework",
-    "OpenSSL.framework"
+    "glog.framework"
+#     "OpenSSL.framework"
   ]
 end
