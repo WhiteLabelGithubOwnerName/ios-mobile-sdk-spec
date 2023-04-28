@@ -19,12 +19,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
-  s.dependencies = {
-    "glog": [
-      "~> 0.3.5"
-    ],
-    "DoubleConversion": [
-      "~> 1.1.6"
-    ]
-}
+
 end
