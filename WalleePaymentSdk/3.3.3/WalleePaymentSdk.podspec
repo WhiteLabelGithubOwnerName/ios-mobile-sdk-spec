@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
-  s.dependency 'OpenSSL', '~> 1.1.1000'
+  s.dependency 'OpenSSL-Universal', '~> 1.1.1000'
   s.dependency 'glog', '~> 0.3.5'
   s.dependency 'DoubleConversion',  '~> 1.1.6'
 end 
