@@ -19,8 +19,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
-#   just for test
-  s.dependency 'Apollo/WebSocket', '~> 0.0.1'
   s.dependency 'OpenSSL-Universal', '~> 1.1.1000'
   s.dependency 'Flipper-Glog', '~> 0.3.5'
   s.dependency 'Flipper-DoubleConversion',  '~> 3.2.0.1'
