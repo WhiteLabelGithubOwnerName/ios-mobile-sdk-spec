@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '12.4'
   s.dependency 'OpenSSL-Universal', '~> 1.1.1000'
   s.dependency 'Flipper-Glog', '~> 0.3.5'
-  s.dependency 'DoubleConversion',  '~> 1.1.6'
+  s.dependency 'Flipper-DoubleConversion',  '~> 3.2.0.1'
 end 
