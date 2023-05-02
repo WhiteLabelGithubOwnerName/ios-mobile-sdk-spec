@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "WalleePaymentSdk"
   s.module_name  = "WalleePaymentSdk"
-  s.version      = "4.0.1"
+  s.version      = "1.0.2"
   s.summary      = "https://whitelabel-docs.com"
   s.license = { :type => 'Copyright', :text => <<-LICENSE
                    license
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author       = "WalleeXXXX"
   s.homepage     = "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk"
 
-  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git", :tag => "4.0.1" }
+  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "1.0.2" }
   s.vendored_frameworks = "WalleePaymentSdk.xcframework"
   s.resource_bundles = { "WalleePayment" => "walleepaymentsdkbundle.jsbundle" }
 
