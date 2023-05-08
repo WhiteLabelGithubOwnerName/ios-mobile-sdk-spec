@@ -19,7 +19,7 @@
 
 # [ios] WalleePaymentSdk
 
-[ios SDK Release on GitHub](https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk/releases/tag/0.1.0)
+[ios SDK Release on GitHub](https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk/releases/tag/1.0.0)
 
 ## API reference
 
