@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "WalleePaymentSdk"
   s.module_name  = "WalleePaymentSdk"
-  s.version      = "1.1.0"
+  s.version      = "5.0.0"
   s.summary      = "https://whitelabel-docs.com"
   s.license = { :type => 'Copyright', :text => <<-LICENSE
                    license
