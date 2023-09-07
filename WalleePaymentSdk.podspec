@@ -1,15 +1,14 @@
 Pod::Spec.new do |s|
   s.name         = "WalleePaymentSdk"
   s.module_name  = "WalleePaymentSdk"
-  s.version      = "10.0.0"
+  s.version      = "15.0.0"
   s.summary      = "Official Wallee Payment SDK to access different payment methods."
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE'}
   s.author       = "Wallee AG"
   s.homepage     = "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk"
-  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "10.0.0" }
+  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "15.0.0" }
   s.vendored_frameworks = "WalleePaymentSdk.xcframework"
   s.resource_bundles = { "WalleePayment" => "walleepaymentsdkbundle.jsbundle" }
-  s.dependency 'WalleeTwintSDK', :podspec => 'https://raw.githubusercontent.com/NetPumi2/TwintTestCocoapod/main/walleeResourcesTwintPod.podspec'
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
