@@ -1,6 +1,3 @@
-source 'https://github.com/NetPumi2/test-pod-payment-resources.git'
-
-
 Pod::Spec.new do |s|
   s.name         = "WalleePaymentSdk"
   s.module_name  = "WalleePaymentSdk"
@@ -15,5 +12,4 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
-  s.dependency "PaymentResources"
 end
