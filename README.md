@@ -30,7 +30,7 @@ target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘WalleePaymentSdk’, '1.3.0-postfinance'
+  pod ‘WalleePaymentSdk’, '1.4.0-postfinance'
 
   target 'DemoAppTests' do
     inherit! :search_paths
@@ -41,14 +41,14 @@ end
 
 #### From GitHub repository
 
-`pod ‘WalleePaymentSdk’, '1.3.0-postfinance' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+`pod ‘WalleePaymentSdk’, '1.4.0-postfinance' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
 ```sh
 target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘WalleePaymentSdk’, '1.3.0-postfinance' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+  pod ‘WalleePaymentSdk’, '1.4.0-postfinance' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
   target 'DemoAppTests' do
     inherit! :search_paths
