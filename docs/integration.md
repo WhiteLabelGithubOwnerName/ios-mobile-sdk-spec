@@ -11,24 +11,24 @@
 
 ## Set up Wallee
 
-To use the iOS Payment SDK, you need a [wallee account](null). After signing up, set up your space and enable the payment methods you would like to support.
+To use the iOS Payment SDK, you need a [wallee account](https://app-wallee.com/user/signup). After signing up, set up your space and enable the payment methods you would like to support.
 
 ## Create transaction
 
-For security reasons, your app cannot create transactions and fetch access tokens. This has to be done on your server by talking to the [wallee Web Service API](nullen-us/doc/api/web-service). You can use one of the official SDK libraries to make these calls.
+For security reasons, your app cannot create transactions and fetch access tokens. This has to be done on your server by talking to the [wallee Web Service API](https://app-wallee.com/en-us/doc/api/web-service). You can use one of the official SDK libraries to make these calls.
 
-To use the iOS Payment SDK to collect payments, an endpoint needs to be added on your server that creates a transaction by calling the [create transaction](nulldoc/api/web-service#transaction-service--create) API endpoint. A transaction holds information about the customer and the line items and tracks charge attempts and the payment state.
+To use the iOS Payment SDK to collect payments, an endpoint needs to be added on your server that creates a transaction by calling the [create transaction](https://app-wallee.com/doc/api/web-service#transaction-service--create) API endpoint. A transaction holds information about the customer and the line items and tracks charge attempts and the payment state.
 
-Once the transaction has been created, your endpoint can fetch an access token by calling the [create transaction credentials](nulldoc/api/web-service#transaction-service--create-transaction-credentials) API endpoint. The access token is returned and passed to the iOS Payment SDK.
+Once the transaction has been created, your endpoint can fetch an access token by calling the [create transaction credentials](https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials) API endpoint. The access token is returned and passed to the iOS Payment SDK.
 
 ```bash
 # Create a transaction
-curl 'nullapi/transaction/create?spaceId=1' \
+curl 'https://app-wallee.com/api/transaction/create?spaceId=1' \
   -X "POST" \
   -d "{{TRANSACTION_DATA}}"
 
 # Fetch an access token for the created transaction
-curl 'nullapi/transaction/createTransactionCredentials?spaceId={{SPACE_ID}}&id={{TRANSACTION_ID}}' \
+curl 'https://app-wallee.com/api/transaction/createTransactionCredentials?spaceId={{SPACE_ID}}&id={{TRANSACTION_ID}}' \
   -X 'POST'
 ```
 
@@ -38,13 +38,13 @@ curl 'nullapi/transaction/createTransactionCredentials?spaceId={{SPACE_ID}}&id={
 
 Before launching the iOS Payment SDK to collect the payment, your checkout page should show the total amount, the products that are being purchased and a checkout button to start the payment process.
 
-Let your checkout activity extend `PostFinanceResultObserver`, add the necessary function `paymentResult`.
+Let your checkout activity extend `WalleePaymentResultObserver`, add the necessary function `paymentResult`.
 
 ```swift
 import UIKit
-import PostFinanceSdk
+import WalleePaymentSdk
 
-class ViewController : UIViewController, PostFinanceResultObserver {
+class ViewController : UIViewController, WalleePaymentResultObserver {
 
     func paymentResult(paymentResultMessage: PaymentResult)
     {
@@ -53,23 +53,23 @@ class ViewController : UIViewController, PostFinanceResultObserver {
 }
 ```
 
-When the customer taps the checkout button, call your endpoint that creates the transaction and returns the access token, initialize the `PostFinanceSdk` instance and launch the payment dialog.
+When the customer taps the checkout button, call your endpoint that creates the transaction and returns the access token, initialize the `WalleePaymentSdk` instance and launch the payment dialog.
 
 ```swift
 // ...
 import UIKit
-import PostFinanceSdk
+import WalleePaymentSdk
 
-class ViewController : UIViewController, PostFinanceResultObserver {
+class ViewController : UIViewController, WalleePaymentResultObserver {
 
     //...
-    var : PostFinanceSdk
+    var walleePaymentSdk: WalleePaymentSdk
 
     @IBAction func openSdkClick()
     {
-         = PostFinanceSdk(eventObserver: self)
+        walleePaymentSdk = WalleePaymentSdk(eventObserver: self)
         ...
-        .launchPayment(token: _token, rootController: self)
+        walleePaymentSdk.launchPayment(token: _token, rootController: self)
     }
 
     // ...
@@ -80,26 +80,26 @@ After the customer completes the payment, the dialog dismisses and the `paymentR
 
 ### Basic usage SwiftUI
 
-First of all make sure you import the `PostFinanceSdk` package and initialize it in relevant class. You also need to extend the class with `PostFinanceResultObserver` to able to receive the result of payment:
+First of all make sure you import the `WalleePaymentSdk` package and initialize it in relevant class. You also need to extend the class with `WalleePaymentResultObserver` to able to receive the result of payment:
 
 ```swift
 // PaymentManager.swift
-import PostFinanceSdk
+import WalleePaymentSdk
 ...
-class PaymentManager: PostFinanceResultObserver {
+class PaymentManager: WalleePaymentResultObserver {
 ...
 func onOpenSdkPress(){
-    let wallee = PostFinanceSdk(eventObserver: self)
+    let wallee = WalleePaymentSdk(eventObserver: self)
     ...
     }
 }
 ```
 
-To display the UI of Payment SDK make sure you import the `PostFinanceSdk` into the relevant View:
+To display the UI of Payment SDK make sure you import the `WalleePaymentSdk` into the relevant View:
 
 ```swift
 // ContentView.swift
-import PostFinanceSdk
+import WalleePaymentSdk
 ...
     Button {
        // add code for generating transaction and fetching the token
@@ -130,9 +130,9 @@ The response object contains these properties:
 
 ```swift
 import UIKit
-import PostFinanceSdk
+import WalleePaymentSdk
 
-class ViewController: UIViewController, PostFinanceResultObserver {
+class ViewController: UIViewController, WalleePaymentResultObserver {
     // ...
 
     @IBOutlet var resultCallbackText: UILabel?
@@ -152,4 +152,4 @@ class ViewController: UIViewController, PostFinanceResultObserver {
 
 ## Verify payment
 
-As customers could quit the app or lose network connection before the result is handled or malicious clients could manipulate the response, it is strongly recommended to set up your server to listen for webhook events the get transactions' actual states. Find more information in the [webhook documentation](nullen-us/doc/webhooks).
+As customers could quit the app or lose network connection before the result is handled or malicious clients could manipulate the response, it is strongly recommended to set up your server to listen for webhook events the get transactions' actual states. Find more information in the [webhook documentation](https://app-wallee.com/en-us/doc/webhooks).
