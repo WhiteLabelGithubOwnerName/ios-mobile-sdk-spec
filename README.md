@@ -30,7 +30,7 @@ target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘PostFinanceSdk’, '1.23.1'
+  pod ‘PostFinanceSdk’, '1.23.2ß'
 
   target 'DemoAppTests' do
     inherit! :search_paths
@@ -41,14 +41,14 @@ end
 
 #### From GitHub repository
 
-`pod ‘PostFinanceSdk’, '1.23.1' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+`pod ‘PostFinanceSdk’, '1.23.2ß' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
 ```sh
 target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘PostFinanceSdk’, '1.23.1' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+  pod ‘PostFinanceSdk’, '1.23.2ß' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
   target 'DemoAppTests' do
     inherit! :search_paths
