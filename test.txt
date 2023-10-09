@@ -1,0 +1,17 @@
+credential.helper=osxkeychain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.email=technical-systems@wallee.com
+user.name=wallee-deployment-user
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=https://wallee-deployment-user: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@github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
