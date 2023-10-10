@@ -1,7 +1,7 @@
 # Table of contents
 
 - [Table of contents](#table-of-contents)
-- [PostFinanceSdk](#walleepaymentsdk)
+- [WalleePaymentSdk](#walleepaymentsdk)
   - [Installation](#installation)
     - [Requirements](#requirements)
     - [Configuration](#configuration)
@@ -9,7 +9,7 @@
       - [From GitHub repository](#from-github-repository)
   - [Documentation](#documentation)
 
-# PostFinanceSdk
+# WalleePaymentSdk
 
 [ios SDK Release on GitHub](https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk/releases)
 
@@ -30,7 +30,7 @@ target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘PostFinanceSdk’, '6.6.6'
+  pod ‘WalleePaymentSdk’, '6.6.7'
 
   target 'DemoAppTests' do
     inherit! :search_paths
@@ -41,14 +41,14 @@ end
 
 #### From GitHub repository
 
-`pod ‘PostFinanceSdk’, '6.6.6' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+`pod ‘WalleePaymentSdk’, '6.6.7' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
 ```sh
 target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘PostFinanceSdk’, '6.6.6' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
+  pod ‘WalleePaymentSdk’, '6.6.7' :source=> ‘https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk-spec.git’`
 
   target 'DemoAppTests' do
     inherit! :search_paths

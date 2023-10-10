@@ -2,7 +2,7 @@
 
 | API | Type | Description |
 | --- | --- | --- |
-| PostFinanceResultObserver | protocol | Protocol for handling post-payment events `paymentResult` |
+| WalleePaymentResultObserver | protocol | Protocol for handling post-payment events `paymentResult` |
 | `func paymentResult(paymentResultMessage: PaymentResult)` | function | Result handler for transaction state |
 | `func launchPayment(token: String, rootController: UIViewController)` | function | Opening payment dialog (activity) |
 | `func setDarkTheme(dark: NSMutableDictionary)` | function | Can override the whole dark theme or just some specific color. |
