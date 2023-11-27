@@ -63,13 +63,13 @@ import WalleePaymentSdk
 class ViewController : UIViewController, WalleePaymentResultObserver {
 
     //...
-    var walleePaymentSdk: WalleePaymentSdk
+    var paymentSdk: WalleePaymentSdk
 
     @IBAction func openSdkClick()
     {
-        walleePaymentSdk = WalleePaymentSdk(eventObserver: self)
+        paymentSdk = WalleePaymentSdk(eventObserver: self)
         ...
-        walleePaymentSdk.launchPayment(token: _token, rootController: self)
+        paymentSdk.launchPayment(token: _token, rootController: self)
     }
 
     // ...
@@ -89,7 +89,7 @@ import WalleePaymentSdk
 class PaymentManager: WalleePaymentResultObserver {
 ...
 func onOpenSdkPress(){
-    let wallee = WalleePaymentSdk(eventObserver: self)
+    let sdk = WalleePaymentSdk(eventObserver: self)
     ...
     }
 }
