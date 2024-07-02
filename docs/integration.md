@@ -173,18 +173,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 ```
 
-For Twint integration you have to setup `URL types` and `Queried URL Schemes` in your app `Info.plist` and pass deep link into SDK
-
-```javascript
-
-func foo(){
-    let sdk = WalleePaymentSdk(eventObserver: self)
-    ...
-    sdk.configureDeepLink(deepLink: "uniq-payment-deep-link")
-    ...
-}
-
-```
+For Twint integration you have to setup `URL types` and `Queried URL Schemes` in your app `Info.plist`.
 
 <mark style="background-color: red"> :bangbang: :warning: Please note that this is essential to invoke TWINT. :warning: :bangbang: </mark>
 
@@ -196,7 +185,7 @@ func foo(){
    <string>Editor</string>
    <key>CFBundleURLSchemes</key>
    <array>
-    <string>uniq-payment-deep-link</string>
+    <string>twint-payment</string>
    </array>
   </dict>
  </array>
