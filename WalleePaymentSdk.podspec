@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.swift_version = "4.2"
   s.ios.deployment_target  = '12.4'
   s.dependency 'PaymentResources', '2.0.0'
-  s.dependency 'ThreeDS_SDK', '2.3.74', '~> https://github.com/ios-3ds-sdk/Specs.git'
 end
