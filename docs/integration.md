@@ -7,29 +7,28 @@
     - [Basic usage Swift (Storyboard)](#basic-usage-swift-storyboard)
     - [Basic usage SwiftUI](#basic-usage-swiftui)
   - [Handle result](#handle-result)
-    - [Additional integration steps](#additional-integration-steps)
   - [Verify payment](#verify-payment)
 
 ## Set up Wallee
 
-To use the iOS Payment SDK, you need a [wallee account](walleeAppUrlPlaceholder/user/signup). After signing up, set up your space and enable the payment methods you would like to support.
+To use the iOS Payment SDK, you need a [wallee account](https://app-wallee.com/user/signup). After signing up, set up your space and enable the payment methods you would like to support.
 
 ## Create transaction
 
-For security reasons, your app cannot create transactions and fetch access tokens. This has to be done on your server by talking to the [wallee Web Service API](walleeAppUrlPlaceholder/en-us/doc/api/web-service). You can use one of the official SDK libraries to make these calls.
+For security reasons, your app cannot create transactions and fetch access tokens. This has to be done on your server by talking to the [wallee Web Service API](https://app-wallee.com/en-us/doc/api/web-service). You can use one of the official SDK libraries to make these calls.
 
-To use the iOS Payment SDK to collect payments, an endpoint needs to be added on your server that creates a transaction by calling the [create transaction](walleeAppUrlPlaceholder/doc/api/web-service#transaction-service--create) API endpoint. A transaction holds information about the customer and the line items and tracks charge attempts and the payment state.
+To use the iOS Payment SDK to collect payments, an endpoint needs to be added on your server that creates a transaction by calling the [create transaction](https://app-wallee.com/doc/api/web-service#transaction-service--create) API endpoint. A transaction holds information about the customer and the line items and tracks charge attempts and the payment state.
 
-Once the transaction has been created, your endpoint can fetch an access token by calling the [create transaction credentials](walleeAppUrlPlaceholder/doc/api/web-service#transaction-service--create-transaction-credentials) API endpoint. The access token is returned and passed to the iOS Payment SDK.
+Once the transaction has been created, your endpoint can fetch an access token by calling the [create transaction credentials](https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials) API endpoint. The access token is returned and passed to the iOS Payment SDK.
 
 ```bash
 # Create a transaction
-curl 'walleeAppUrlPlaceholder/api/transaction/create?spaceId=1' \
+curl 'https://app-wallee.com/api/transaction/create?spaceId=1' \
   -X "POST" \
   -d "{{TRANSACTION_DATA}}"
 
 # Fetch an access token for the created transaction
-curl 'walleeAppUrlPlaceholder/api/transaction/createTransactionCredentials?spaceId={{SPACE_ID}}&id={{TRANSACTION_ID}}' \
+curl 'https://app-wallee.com/api/transaction/createTransactionCredentials?spaceId={{SPACE_ID}}&id={{TRANSACTION_ID}}' \
   -X 'POST'
 ```
 
@@ -64,13 +63,13 @@ import WalleePaymentSdk
 class ViewController : UIViewController, WalleePaymentResultObserver {
 
     //...
-    var paymentSdk: WalleePaymentSdk
+    var walleePaymentSdk: WalleePaymentSdk
 
     @IBAction func openSdkClick()
     {
-        paymentSdk = WalleePaymentSdk(eventObserver: self)
+        walleePaymentSdk = WalleePaymentSdk(eventObserver: self)
         ...
-        paymentSdk.launchPayment(token: _token)
+        walleePaymentSdk.launchPayment(token: _token, rootController: self)
     }
 
     // ...
@@ -90,7 +89,7 @@ import WalleePaymentSdk
 class PaymentManager: WalleePaymentResultObserver {
 ...
 func onOpenSdkPress(){
-    let sdk = WalleePaymentSdk(eventObserver: self)
+    let wallee = WalleePaymentSdk(eventObserver: self)
     ...
     }
 }
@@ -151,102 +150,6 @@ class ViewController: UIViewController, WalleePaymentResultObserver {
 }
 ```
 
-### Additional integration steps
-
-`WalleePaymentSdk.onHandleOpenURL(url: url)` Static function for handling deep link. It has to be called in [SceneDelegate](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene) or [AppDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc). Without this implementation SDK isn't able to send current response when transaction is complete.
-
-```swift
-
-
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-...
-
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url{
-          WalleePaymentSdk.onHandleOpenURL(url: url)
-        }
-    }
-...
-
-}
-
-```
-
-For Twint integration you have to setup `URL types` and `Queried URL Schemes` in your app `Info.plist`.
-
-<mark style="background-color: red"> :bangbang: :warning: Please note that this is essential to invoke TWINT. :warning: :bangbang: </mark>
-
-```xml
- <key>CFBundleURLTypes</key>
- <array>
-  <dict>
-   <key>CFBundleTypeRole</key>
-   <string>Editor</string>
-   <key>CFBundleURLSchemes</key>
-   <array>
-    <string>twint-payment</string>
-   </array>
-  </dict>
- </array>
- <key>LSApplicationQueriesSchemes</key>
- <array>
-  <string>twint-issuer1</string>
-  <string>twint-issuer2</string>
-  <string>twint-issuer3</string>
-  <string>twint-issuer4</string>
-  <string>twint-issuer5</string>
-  <string>twint-issuer6</string>
-  <string>twint-issuer7</string>
-  <string>twint-issuer8</string>
-  <string>twint-issuer9</string>
-  <string>twint-issuer10</string>
-  <string>twint-issuer11</string>
-  <string>twint-issuer12</string>
-  <string>twint-issuer13</string>
-  <string>twint-issuer14</string>
-  <string>twint-issuer15</string>
-  <string>twint-issuer16</string>
-  <string>twint-issuer17</string>
-  <string>twint-issuer18</string>
-  <string>twint-issuer19</string>
-  <string>twint-issuer20</string>
-  <string>twint-issuer21</string>
-  <string>twint-issuer22</string>
-  <string>twint-issuer23</string>
-  <string>twint-issuer24</string>
-  <string>twint-issuer25</string>
-  <string>twint-issuer26</string>
-  <string>twint-issuer27</string>
-  <string>twint-issuer28</string>
-  <string>twint-issuer29</string>
-  <string>twint-issuer30</string>
-  <string>twint-issuer31</string>
-  <string>twint-issuer32</string>
-  <string>twint-issuer33</string>
-  <string>twint-issuer34</string>
-  <string>twint-issuer35</string>
-  <string>twint-issuer36</string>
-  <string>twint-issuer37</string>
-  <string>twint-issuer38</string>
-  <string>twint-issuer39</string>
-  <string>twint-issuer40</string>
-  <string>twint-issuer41</string>
-  <string>twint-issuer42</string>
-  <string>twint-issuer43</string>
-  <string>twint-issuer44</string>
-  <string>twint-issuer45</string>
-  <string>twint-issuer46</string>
-  <string>twint-issuer47</string>
-  <string>twint-issuer48</string>
-  <string>twint-issuer49</string>
-  <string>twint-issuer50</string>
- </array>
-
-
-
-```
-
 ## Verify payment
 
-As customers could quit the app or lose network connection before the result is handled or malicious clients could manipulate the response, it is strongly recommended to set up your server to listen for webhook events the get transactions' actual states. Find more information in the [webhook documentation](walleeAppUrlPlaceholder/en-us/doc/webhooks).
+As customers could quit the app or lose network connection before the result is handled or malicious clients could manipulate the response, it is strongly recommended to set up your server to listen for webhook events the get transactions' actual states. Find more information in the [webhook documentation](https://app-wallee.com/en-us/doc/webhooks).
