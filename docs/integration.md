@@ -7,6 +7,7 @@
     - [Basic usage Swift (Storyboard)](#basic-usage-swift-storyboard)
     - [Basic usage SwiftUI](#basic-usage-swiftui)
   - [Handle result](#handle-result)
+    - [Additional integration steps](#additional-integration-steps)
   - [Verify payment](#verify-payment)
 
 ## Set up Wallee
@@ -63,13 +64,13 @@ import WalleePaymentSdk
 class ViewController : UIViewController, WalleePaymentResultObserver {
 
     //...
-    var walleePaymentSdk: WalleePaymentSdk
+    var paymentSdk: WalleePaymentSdk
 
     @IBAction func openSdkClick()
     {
-        walleePaymentSdk = WalleePaymentSdk(eventObserver: self)
+        paymentSdk = WalleePaymentSdk(eventObserver: self)
         ...
-        walleePaymentSdk.launchPayment(token: _token, rootController: self)
+        paymentSdk.launchPayment(token: _token, rootController: self)
     }
 
     // ...
@@ -89,7 +90,7 @@ import WalleePaymentSdk
 class PaymentManager: WalleePaymentResultObserver {
 ...
 func onOpenSdkPress(){
-    let wallee = WalleePaymentSdk(eventObserver: self)
+    let sdk = WalleePaymentSdk(eventObserver: self)
     ...
     }
 }
@@ -148,6 +149,102 @@ class ViewController: UIViewController, WalleePaymentResultObserver {
 
     // ...
 }
+```
+
+### Additional integration steps
+
+`WalleePaymentSdk.onHandleOpenURL(url: url)` Static function for handling deep link. It has to be called in [SceneDelegate](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene) or [AppDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc). Without this implementation SDK isn't able to send current response when transaction is complete.
+
+```swift
+
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+...
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url{
+          WalleePaymentSdk.onHandleOpenURL(url: url)
+        }
+    }
+...
+
+}
+
+```
+
+For Twint integration you have to setup `URL types` and `Queried URL Schemes` in your app `Info.plist`.
+
+<mark style="background-color: red"> :bangbang: :warning: Please note that this is essential to invoke TWINT. :warning: :bangbang: </mark>
+
+```xml
+ <key>CFBundleURLTypes</key>
+ <array>
+  <dict>
+   <key>CFBundleTypeRole</key>
+   <string>Editor</string>
+   <key>CFBundleURLSchemes</key>
+   <array>
+    <string>twint-payment</string>
+   </array>
+  </dict>
+ </array>
+ <key>LSApplicationQueriesSchemes</key>
+ <array>
+  <string>twint-issuer1</string>
+  <string>twint-issuer2</string>
+  <string>twint-issuer3</string>
+  <string>twint-issuer4</string>
+  <string>twint-issuer5</string>
+  <string>twint-issuer6</string>
+  <string>twint-issuer7</string>
+  <string>twint-issuer8</string>
+  <string>twint-issuer9</string>
+  <string>twint-issuer10</string>
+  <string>twint-issuer11</string>
+  <string>twint-issuer12</string>
+  <string>twint-issuer13</string>
+  <string>twint-issuer14</string>
+  <string>twint-issuer15</string>
+  <string>twint-issuer16</string>
+  <string>twint-issuer17</string>
+  <string>twint-issuer18</string>
+  <string>twint-issuer19</string>
+  <string>twint-issuer20</string>
+  <string>twint-issuer21</string>
+  <string>twint-issuer22</string>
+  <string>twint-issuer23</string>
+  <string>twint-issuer24</string>
+  <string>twint-issuer25</string>
+  <string>twint-issuer26</string>
+  <string>twint-issuer27</string>
+  <string>twint-issuer28</string>
+  <string>twint-issuer29</string>
+  <string>twint-issuer30</string>
+  <string>twint-issuer31</string>
+  <string>twint-issuer32</string>
+  <string>twint-issuer33</string>
+  <string>twint-issuer34</string>
+  <string>twint-issuer35</string>
+  <string>twint-issuer36</string>
+  <string>twint-issuer37</string>
+  <string>twint-issuer38</string>
+  <string>twint-issuer39</string>
+  <string>twint-issuer40</string>
+  <string>twint-issuer41</string>
+  <string>twint-issuer42</string>
+  <string>twint-issuer43</string>
+  <string>twint-issuer44</string>
+  <string>twint-issuer45</string>
+  <string>twint-issuer46</string>
+  <string>twint-issuer47</string>
+  <string>twint-issuer48</string>
+  <string>twint-issuer49</string>
+  <string>twint-issuer50</string>
+ </array>
+
+
+
 ```
 
 ## Verify payment
