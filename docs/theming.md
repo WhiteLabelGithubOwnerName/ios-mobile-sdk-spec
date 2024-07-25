@@ -11,9 +11,9 @@ The appearance of the payment dialog can be customized to match the look and fee
 
 Colors can be modified by passing a JSON object to the `WalleePaymentSdk` instance. You can either completely override the theme or only change certain colors.
 
-- `paymentSdk.setLightTheme(NSMutableDictionary)` allows to modify the payment dialog's light theme.
-- `paymentSdk.setDarkTheme(NSMutableDictionary)` allows to modify the payment dialog's dark theme.
-- `paymentSdk.setCustomTheme(NSMutableDictionary|| nil, ThemeEnum)` allows to enforce a specific theme (dark, light or your own).
+- `walleePaymentSdk.setLightTheme(NSMutableDictionary)` allows to modify the payment dialog's light theme.
+- `walleePaymentSdk.setDarkTheme(NSMutableDictionary)` allows to modify the payment dialog's dark theme.
+- `walleePaymentSdk.setCustomTheme(NSMutableDictionary|| nil, ThemeEnum)` allows to enforce a specific theme (dark, light or your own).
 
 ```swift
 // ...
@@ -23,18 +23,18 @@ import WalleePaymentSdk
 
 class ViewController : UIViewController, WalleePaymentResultObserver {
 
-    let paymentSdk = WalleePaymentSdk (eventObserver: self)
+    let walleePaymentSdk = WalleePaymentSdk (eventObserver: self)
 
     @IBAction func openSdkClick()
     {
         ....
-        changeColorSchema()
+        changeColorSchema(wallee: wallee)
         ...
     }
 
-    private func changeColorSchema()
+    private func changeColorSchema(wallee: WalleePaymentSdk)
     {
-        paymentSdk.setLightTheme(light: getLightTheme())
+        walleePaymentSdk.setLightTheme(light: getLightTheme())
     }
 
 }
@@ -47,20 +47,20 @@ The `changeColorSchema` function allows to define the theme to be used by the pa
 You can also use `setCustomTheme` to force the usage of the light or dark theme.
 
 ```swift
-paymentSdk.setCustomTheme(custom: getNewCustomTheme(), baseTheme: .DARK)
+walleePaymentSdk.setCustomTheme(custom: getNewCustomTheme(), baseTheme: .DARK)
 ```
 
 ```swift
-paymentSdk.setCustomTheme(custom: getNewCustomTheme(), baseTheme: .LIGHT)
+walleePaymentSdk.setCustomTheme(custom: getNewCustomTheme(), baseTheme: .LIGHT)
 ```
 
 ### Colors
 
-![Payment method list](../imgs/theme-1.jpeg) ![Payment method details](../imgs/theme-2.jpeg) ![Pyament method additional details](../imgs/theme-3.jpeg)
+![Payment method list](../../imgs/theme-1.jpeg) ![Payment method details](../../imgs/theme-2.jpeg) ![Pyament method additional details](../../imgs/theme-3.jpeg)
 
 ### Animation
 
-Use `setAnimation` method to change the screen change animation. Currently avaliable options are: `AnimationEnum.SLIDE` and `AnimationEnum.BUBBLE`. Default value is `AnimationEnum.SLIDE`. `WalleePaymentSdk.instance?.setAnimation(AnimationEnum.BUBBLE)` allows to modify the payment dialog's dark theme. ![Slide Animation](../imgs/slideAnimation.gif) ![Bubble Animation](../imgs/bubbleAnimation.gif)
+Use `setAnimation` method to change the screen change animation. Currently avaliable options are: `AnimationEnum.SLIDE` and `AnimationEnum.BUBBLE`. Default value is `AnimationEnum.SLIDE`. `WalleePaymentSdk.instance?.setAnimation(AnimationEnum.BUBBLE)` allows to modify the payment dialog's dark theme. ![Slide Animation](../../imgs/slideAnimation.gif) ![Bubble Animation](../../imgs/bubbleAnimation.gif)
 
 ### Default themes
 
