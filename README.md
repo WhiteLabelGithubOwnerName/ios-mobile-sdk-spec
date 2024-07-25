@@ -30,7 +30,7 @@ target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod ‘WalleePaymentSdk’, '7.0.0.a64f59ff14123ffb8fc9b36ec960cf23242d7467'
+  pod ‘WalleePaymentSdk’, '1.4.2e1898d2e87cf6e9e72f318f3e0484f4d88c3b2a-2'
 
   target 'DemoAppTests' do
     inherit! :search_paths
@@ -41,7 +41,7 @@ end
 
 #### From GitHub repository
 
-`pod 'WalleePaymentSdk', '7.0.0.a64f59ff14123ffb8fc9b36ec960cf23242d7467', :source=> 'https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git'`
+`pod 'WalleePaymentSdk', '1.4.2e1898d2e87cf6e9e72f318f3e0484f4d88c3b2a-2', :source=> 'https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git'`
 
 and
 
@@ -52,7 +52,7 @@ target 'DemoApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'WalleePaymentSdk', '7.0.0.a64f59ff14123ffb8fc9b36ec960cf23242d7467', :source => 'https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git'
+  pod 'WalleePaymentSdk', '1.4.2e1898d2e87cf6e9e72f318f3e0484f4d88c3b2a-2', :source => 'https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git'
   pod 'PaymentResources', '1.0.0'
 
   target 'DemoAppTests' do
