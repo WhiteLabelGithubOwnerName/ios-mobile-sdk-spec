@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "WalleePaymentSdk"
   s.module_name  = "WalleePaymentSdk"
-  s.version      = "7.0.0.63c2ee668595830d036bd1c059e7374fab4643a4LUkaSek"
-  s.summary      = "Official Wallee Payment SDK to access different payment methods."
+  s.version      = "1.4.1de76edba73b46807d23836be70a1b0ff9418f9d-2-no-firebase"
+  s.summary      = "Official wallee Payment SDK to access different payment methods."
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE'}
   s.author       = "wallee AG"
   s.homepage     = "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk"
-  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "7.0.0.63c2ee668595830d036bd1c059e7374fab4643a4LUkaSek" }
+  s.source       = { :git => "https://github.com/WhiteLabelGithubOwnerName/ios-mobile-sdk.git", :tag => "1.4.1de76edba73b46807d23836be70a1b0ff9418f9d-2-no-firebase" }
   s.vendored_frameworks = "WalleePaymentSdk.xcframework"
   s.resource_bundles = { "WalleePayment" => "walleepaymentsdkbundle.jsbundle" }
   s.platform = :ios
